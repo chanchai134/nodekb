@@ -1,6 +1,6 @@
 # nodekb
 <strong>* This nodekb require mongodb, please install. *</strong>
-<hr>
-init node_modules by -> "npm install"
-<br>
-run by -> "nodemon"
+<ul>
+  <li>init node_modules by -> "npm install"</li>
+  <li>run by -> "nodemon"</li>
+</ul>
