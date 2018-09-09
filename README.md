@@ -4,4 +4,5 @@
   <li>init node_modules by -> "npm install"</li>
   <li>run by -> "nodemon"</li>
 </ul>
+<hr>
 <p>Copyright &copy; 2018</p>
