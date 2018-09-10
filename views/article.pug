@@ -6,11 +6,11 @@ block content
     .panel-body
       p=article.body
     .panel-footer Written by #{author} 
-  if user == null || user.id == article.author
+  if user == null
+  else if user.id == article.author
     hr
   if user != null || user
     if user.id == article.author
       .btn-group
         a.btn.btn-warning(href='/articles/edit/'+article._id) Edit 
         a.btn.btn-danger.delete-article(href='#',data-id=article._id) Delete
-  
