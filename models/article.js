@@ -10,8 +10,16 @@ let articleSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  body:{
-    type: String,
+  r1:{
+    type: Number,
+    required: true
+  },
+  r2:{
+    type: Number,
+    required: true
+  },
+  r3:{
+    type: Number,
     required: true
   }
 });

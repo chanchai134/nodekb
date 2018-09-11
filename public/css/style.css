@@ -13,3 +13,12 @@
 .navbar {
   border-radius: 0;
 }
+
+.inputCenter {
+  text-align: center;
+}
+
+.textRewardShow {
+  text-align: center;
+  font-size: 20px;
+}

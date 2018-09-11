@@ -4,13 +4,29 @@ block content
   h1 #{title}
   form(method='POST', action='/articles/edit/'+article._id)
     #form-group
-      label Title:
+      label Country:
       input.form-control(name='title', type='text', value=article.title)
-    #form-group
-      label Author:
-      input.form-control(name='author', type='text', value=article.author)
-    #form-group
-      label Body:
-      textarea.form-control(name='body')= article.body
     br
+    .row
+      .col-sm-6.col-md-4
+        .thumbnail
+          br
+          img(src='/img/2.png' width="40%")
+          .caption#form-group
+            br
+            input.form-control.inputCenter(name='_2', type='number' value=article.r2)
+      .col-sm-6.col-md-4
+        .thumbnail
+          br
+          img(src='/img/1.png' width="40%")
+          .caption#form-group
+            br
+            input.form-control.inputCenter(name='_1', type='number' value=article.r1)
+      .col-sm-6.col-md-4
+        .thumbnail
+          br
+          img(src='/img/3.png' width="40%")
+          .caption#form-group
+            br
+            input.form-control.inputCenter(name='_3', type='number' value=article.r3)
     input.btn.btn-primary(type='submit',value='Submit')

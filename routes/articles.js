@@ -9,36 +9,40 @@ let User = require('../models/user');
 // Add Route
 router.get('/add', ensureAuthenticated, function(req, res){
   res.render('add_article', {
-    title:'Add Article'
+    title:'Add Country'
   });
 });
 
 // Add Submit POST Route
 router.post('/add', function(req, res){
-  req.checkBody('title','Title is required').notEmpty();
+  req.checkBody('title','Country is required').notEmpty();
   //req.checkBody('author','Author is required').notEmpty();
-  req.checkBody('body','Body is required').notEmpty();
+  req.checkBody('_1','First is required').notEmpty();
+  req.checkBody('_2','Second is required').notEmpty();
+  req.checkBody('_3','Third is required').notEmpty();
 
   // Get Errors
   let errors = req.validationErrors();
 
   if(errors){
     res.render('add_article', {
-      title:'Add Article',
+      title:'Add Country',
       errors:errors
     });
   } else {
     let article = new Article();
     article.title = req.body.title;
     article.author = req.user._id;
-    article.body = req.body.body;
+    article.r1 = req.body._1;
+    article.r2 = req.body._2;
+    article.r3 = req.body._3;
 
     article.save(function(err){
       if(err){
         console.log(err);
         return;
       } else {
-        req.flash('success','Article Added');
+        req.flash('success','Informaion Added');
         res.redirect('/');
       }
     });
@@ -53,7 +57,7 @@ router.get('/edit/:id', ensureAuthenticated, function(req, res){
       res.redirect('/');
     }
     res.render('edit_article', {
-      title:'Edit Article',
+      title:'Edit Reward',
       article:article
     });
   });
@@ -63,8 +67,10 @@ router.get('/edit/:id', ensureAuthenticated, function(req, res){
 router.post('/edit/:id', function(req, res){
   let article = {};
   article.title = req.body.title;
-  article.author = req.body.author;
-  article.body = req.body.body;
+  article.author = req.user._id;
+  article.r1 = req.body._1;
+  article.r2 = req.body._2;
+  article.r3 = req.body._3;
 
   let query = {_id:req.params.id}
 
@@ -107,7 +113,10 @@ router.get('/:id', function(req, res){
     User.findById(article.author, function(err, user){
       res.render('article', {
         article:article,
-        author: user.name
+        author: user.name,
+        r1: user.r1,
+        r2: user.r2,
+        r3: user.r3
       });
     });
   });

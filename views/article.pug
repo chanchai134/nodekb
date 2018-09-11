@@ -3,9 +3,27 @@ extends layout
 block content
   h1= article.title
   .panel.panel-default
-    .panel-body
-      p=article.body
-    .panel-footer Written by #{author} 
+    br
+    .panel-body.row
+      .col-sm-6.col-md-4
+        .thumbnail
+          br
+          img(src='/img/2.png' width="40%")
+          .caption
+            .alert.alert-info.textRewardShow=article.r2
+      .col-sm-6.col-md-4
+        .thumbnail
+          br
+          img(src='/img/1.png' width="40%")
+          .caption
+            .alert.alert-warning.textRewardShow=article.r1
+      .col-sm-6.col-md-4
+        .thumbnail
+          br
+          img(src='/img/3.png' width="40%")
+          .caption
+            .alert.alert-danger.textRewardShow=article.r3
+    .panel-footer Written by #{author}
   if user == null
   else if user.id == article.author
     hr
